@@ -1,0 +1,17 @@
+.form {
+  display: grid;
+  gap: 2rem;
+  border: 1px solid rgba(gray, 0.3);
+  margin-top: 1rem;
+  padding: 1rem;
+
+  div {
+    width: 100%;
+    display: flex;
+
+    input {
+      padding: 0.2rem;
+      margin-left: auto;
+    }
+  }
+}

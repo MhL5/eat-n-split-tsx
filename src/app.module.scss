@@ -1,0 +1,18 @@
+.appContainer {
+  display: grid;
+  place-items: center;
+  min-height: 100dvh;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.right {
+  grid-column: 2/3;
+}
+
+.left {
+  grid-column: 1/2;
+}

@@ -1,0 +1,28 @@
+.card {
+  list-style: none;
+
+  display: flex;
+  place-items: center;
+  gap: 3rem;
+
+  min-width: 20rem;
+  border: 1px solid rgba(133, 131, 131, 0.1);
+
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.avatar {
+  img {
+    border-radius: 999px;
+  }
+}
+
+.info {
+  margin-right: auto;
+  font-size: medium;
+}
+
+.button {
+  margin-left: auto;
+}

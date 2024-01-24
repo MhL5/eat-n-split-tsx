@@ -1,0 +1,17 @@
+.form {
+  border: 1px solid rgba(gray, 0.2);
+  transition: 300ms ease;
+
+  div {
+    display: flex;
+    padding: 0.5rem;
+
+    input {
+      margin-left: auto;
+    }
+
+    button {
+      margin-left: auto;
+    }
+  }
+}
