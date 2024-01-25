@@ -1,27 +1,16 @@
 import { useState, type FC, FormEvent } from "react";
-import styles from "./BillSplit.module.scss";
 
-const BillSplit: FC<{
-  friends: {
-    name: string;
-    balance: number;
-    imgUrl: string;
-  }[];
-  showSplitBill: string;
-  setFriends: React.Dispatch<
-    React.SetStateAction<
-      {
-        name: string;
-        balance: number;
-        imgUrl: string;
-      }[]
-    >
-  >;
-  setShowSplitBill: React.Dispatch<React.SetStateAction<string>>;
-}> = function ({ friends, showSplitBill, setFriends, setShowSplitBill }) {
+import styles from "./SplitBillForm.module.scss";
+
+import { useBillContext } from "../context/BillContext";
+
+const SplitBillForm: FC = function () {
   const [bill, setBill] = useState(0);
   const [userExpense, setUserExpense] = useState(0);
   const [whoPaid, setWhoPaid] = useState("user");
+  const { friends, showSplitBill, setFriends, setShowSplitBill } =
+    useBillContext();
+
   const friendExpense = bill - userExpense;
 
   const [{ name }] = friends.filter((friend) => friend.name === showSplitBill);
@@ -64,8 +53,8 @@ const BillSplit: FC<{
         <span>Bill value : </span>
         <input
           type="number"
-          value={bill > 0 ? bill : ""}
-          onChange={(e) => setBill(+e.target.value > 0 ? +e.target.value : 0)}
+          value={bill > 0 ? bill : 0}
+          onChange={(e) => setBill(+e.target.value >= 0 ? +e.target.value : 0)}
         />
       </div>
 
@@ -73,9 +62,9 @@ const BillSplit: FC<{
         <span>Your expenses : </span>
         <input
           type="number"
-          value={userExpense > 0 ? userExpense : ""}
+          value={userExpense >= 0 ? userExpense : 0}
           onChange={(e) =>
-            setUserExpense(+e.target.value > 0 ? +e.target.value : 0)
+            setUserExpense(+e.target.value >= 0 ? +e.target.value : 0)
           }
         />
       </div>
@@ -95,4 +84,4 @@ const BillSplit: FC<{
   );
 };
 
-export default BillSplit;
+export default SplitBillForm;

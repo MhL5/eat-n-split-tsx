@@ -1,19 +1,14 @@
-import { useState, type FC, FormEvent } from "react";
+import { useState, type FC, type FormEvent } from "react";
+
 import styles from "./AddFriend.module.scss";
 
-const AddFriend: FC<{
-  setFriends: React.Dispatch<
-    React.SetStateAction<
-      {
-        name: string;
-        balance: number;
-        imgUrl: string;
-      }[]
-    >
-  >;
-}> = function ({ setFriends }) {
+import { useBillContext } from "../context/BillContext";
+
+const AddFriend: FC = function () {
   const [showForm, setShowForm] = useState(false);
   const [name, setName] = useState("");
+  const { setFriends } = useBillContext();
+
   const randomUrlDigit = Math.floor(100000 + Math.random() * 900000);
   const randomImg = `https://i.pravatar.cc/48?u=${randomUrlDigit}`;
 
