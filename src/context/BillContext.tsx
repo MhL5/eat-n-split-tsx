@@ -32,12 +32,12 @@ const dummyData = [
 ];
 
 type BillContextType = {
-  friends: {
+  FriendsList: {
     name: string;
     balance: number;
     imgUrl: string;
   }[];
-  setFriends: Dispatch<
+  setFriendsList: Dispatch<
     SetStateAction<
       {
         name: string;
@@ -46,16 +46,21 @@ type BillContextType = {
       }[]
     >
   >;
-  showSplitBill: string;
-  setShowSplitBill: Dispatch<SetStateAction<string>>;
+  showFormSplitBill: string;
+  setShowFormSplitBill: Dispatch<SetStateAction<string>>;
 };
 const BillContext = createContext<BillContextType | null>(null);
 
 const BillProvider: FC<PropsWithChildren> = function ({ children }) {
-  const [friends, setFriends] = useState(dummyData);
-  const [showSplitBill, setShowSplitBill] = useState("");
+  const [FriendsList, setFriendsList] = useState(dummyData);
+  const [showFormSplitBill, setShowFormSplitBill] = useState("");
 
-  const ctx = { friends, setFriends, showSplitBill, setShowSplitBill };
+  const ctx = {
+    FriendsList,
+    setFriendsList,
+    showFormSplitBill,
+    setShowFormSplitBill,
+  };
 
   return <BillContext.Provider value={ctx}> {children} </BillContext.Provider>;
 };

@@ -1,20 +1,21 @@
 import { useState, type FC, type FormEvent } from "react";
 
-import styles from "./AddFriend.module.scss";
+import styles from "./FormAddFriend.module.scss";
 
 import { useBillContext } from "../context/BillContext";
 
-const AddFriend: FC = function () {
+const FormAddFriend: FC = function () {
   const [showForm, setShowForm] = useState(false);
   const [name, setName] = useState("");
-  const { setFriends } = useBillContext();
+  const { setFriendsList } = useBillContext();
 
   const randomUrlDigit = Math.floor(100000 + Math.random() * 900000);
   const randomImg = `https://i.pravatar.cc/48?u=${randomUrlDigit}`;
 
-  function handleAddFriend(e: FormEvent) {
+  function handleFormAddFriend(e: FormEvent) {
     e.preventDefault();
-    setFriends((sf) => [...sf, { name: name, balance: 0, imgUrl: randomImg }]);
+    const newFriend = { name: name, balance: 0, imgUrl: randomImg };
+    setFriendsList((sf) => [...sf, newFriend]);
     handleToggle();
   }
 
@@ -26,7 +27,7 @@ const AddFriend: FC = function () {
   return (
     <div>
       {showForm && (
-        <form onSubmit={handleAddFriend} className={styles.form}>
+        <form onSubmit={handleFormAddFriend} className={styles.form}>
           <div>
             <span>Friend name :</span>
             <input
@@ -55,4 +56,4 @@ const AddFriend: FC = function () {
   );
 };
 
-export default AddFriend;
+export default FormAddFriend;

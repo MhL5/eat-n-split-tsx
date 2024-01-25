@@ -2,9 +2,9 @@ import { type FC } from "react";
 
 import styles from "./App.module.scss";
 
-import AddFriend from "./component/AddFriend";
-import SplitBill from "./component/SplitBill";
-import Friends from "./component/Friends";
+import FormAddFriend from "./component/FormAddFriend";
+import FormSplitBill from "./component/FormSplitBill";
+import FriendsList from "./component/FriendsList";
 
 import { BillProvider } from "./context/BillContext";
 
@@ -14,12 +14,12 @@ const App: FC = function () {
       <div className={styles.appContainer}>
         <main className={styles.main}>
           <section className={styles.left}>
-            <Friends />
-            <AddFriend />
+            <FriendsList />
+            <FormAddFriend />
           </section>
 
           <div className={styles.right}>
-            <SplitBill />
+            <FormSplitBill />
           </div>
         </main>
       </div>

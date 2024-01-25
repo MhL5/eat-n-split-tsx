@@ -6,10 +6,10 @@ import { useBillContext } from "../context/BillContext";
 
 const Friend: FC<{ name: string; balance: number; imgUrl: string }> =
   function ({ name, balance, imgUrl }) {
-    const { setShowSplitBill, showSplitBill } = useBillContext();
+    const { setShowFormSplitBill, showFormSplitBill } = useBillContext();
 
-    function handleSetShowSplitBill() {
-      setShowSplitBill(name === showSplitBill ? "" : name);
+    function handleSetShowFormSplitBill() {
+      setShowFormSplitBill(name === showFormSplitBill ? "" : name);
     }
 
     return (
@@ -27,8 +27,8 @@ const Friend: FC<{ name: string; balance: number; imgUrl: string }> =
             </div>
           </div>
           <div className={styles.button}>
-            <button onClick={handleSetShowSplitBill}>
-              {showSplitBill === name ? `Close` : `Select`}
+            <button onClick={handleSetShowFormSplitBill}>
+              {showFormSplitBill === name ? `Close` : `Select`}
             </button>
           </div>
         </li>

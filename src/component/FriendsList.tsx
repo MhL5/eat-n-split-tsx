@@ -4,12 +4,12 @@ import Friend from "./Friend";
 
 import { useBillContext } from "../context/BillContext";
 
-const Friends: FC = function () {
-  const { friends } = useBillContext();
+const FriendsList: FC = function () {
+  const { FriendsList } = useBillContext();
 
   return (
-    <>
-      {friends.map((friend) => (
+    <ul>
+      {FriendsList.map((friend) => (
         <Friend
           key={friend.name}
           name={friend.name}
@@ -17,8 +17,8 @@ const Friends: FC = function () {
           imgUrl={friend.imgUrl}
         />
       ))}
-    </>
+    </ul>
   );
 };
 
-export default Friends;
+export default FriendsList;
