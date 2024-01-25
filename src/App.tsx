@@ -2,9 +2,9 @@ import { type FC } from "react";
 
 import styles from "./App.module.scss";
 
-import FormAddFriend from "./component/FormAddFriend";
-import FormSplitBill from "./component/FormSplitBill";
-import FriendsList from "./component/FriendsList";
+import FormAddFriend from "./components/FormAddFriend";
+import FormSplitBill from "./components/FormSplitBill";
+import FriendsList from "./components/FriendsList";
 
 import { BillProvider } from "./context/BillContext";
 
